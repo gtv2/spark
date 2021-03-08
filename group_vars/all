@@ -1,14 +1,14 @@
 user:
-    name: pigmonkey
+    name: gotlieb
     uid: 1000
-    group: pigmonkey
+    group: gotlieb
     shell: /usr/bin/zsh
-    email:  peter@havenaut.net
+    #email:
     log:
         dir: log
         rotate: 8
 
-hostname: nous
+hostname: test1
 
 interception:
     caps2esc:
@@ -34,8 +34,9 @@ aur:
 
 ssh:
     port: 22
-    user_key: /root/id_rsa
-    enable_sshd: False
+    user_key: id_home_ed25519
+    user_pubkey: id_home_ed25519.pub
+    enable_sshd: True
 
 gnupg:
     enable_agent: True
@@ -333,4 +334,4 @@ pkgfile:
 hardened:
     enable_namespaces: true
 
-kernel_parameters: "quiet consoleblank=60"
+#kernel_parameters: "quiet consoleblank=60"

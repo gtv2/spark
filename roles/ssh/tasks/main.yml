@@ -65,12 +65,21 @@
 
 - name: Install user SSH key
   copy:
-    src: "{{ ssh.user_key }}"
-    dest: /home/{{ user.name }}/.ssh/id_rsa
-    mode: 600
-    owner:  "{{ user.name }}"
+    src: '{{ lookup("env", "HOME") }}/.ssh/{{ ssh.user_key }}'
+    dest: /home/{{ user.name }}/.ssh/{{ ssh.user_key }}
+    mode: 0600
+    owner: "{{ user.name }}"
     group: "{{ user.group }}"
   when: ssh.user_key is defined
+
+- name: Copy over ssh key from current Ansible controller as an authorized key
+  copy:
+    src: '{{ lookup("env", "HOME") }}/.ssh/{{ ssh.user_pubkey }}'
+    dest: /home/{{ user.name }}/.ssh/authorized_keys
+    mode: 0600
+    owner: "{{ user.name }}"
+    group: "{{ user.group }}"
+  when: ssh.user_pubkey is defined
 
 - name: Install Mosh
   pacman:
