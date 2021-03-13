@@ -1,0 +1,55 @@
+---
+- name: Checkout dotfiles from dotfiles repo
+  block:
+    - name: Clone user dotfiles
+      git:
+        repo={{ gitdotfiles.url }}
+        dest=/home/{{ user.name }}/{{ gitdotfiles.destination }}
+        accept_hostkey=yes
+        bare=yes
+        key_file=/home/{{ user.name }}/.ssh/{{ gitdotfiles.ssh_key }}
+    - name: Create backup dir
+      file:
+        path: /home/{{ user.name }}/{{ gitdotfiles.destination }}-backup
+        mode: 0755
+        state: directory
+    - name: Backup existing dotfiles if checkout fails
+      shell: |
+        git --git-dir=/home/{{ user.name }}/{{ gitdotfiles.destination }} \
+            --work-tree=/home/{{ user.name }} checkout  {{ gitdotfiles.branch }} 2>&1 || \
+        git --git-dir=/home/{{ user.name }}/{{ gitdotfiles.destination }} \
+            --work-tree=/home/{{ user.name }} checkout {{ gitdotfiles.branch }} 2>&1 | \
+        egrep "\s+\." | \
+        awk {'print $1'} | \
+        xargs -I{} sh -c "cp -a --parents --backup=numbered {} /home/{{ user.name }}/{{ gitdotfiles.destination }}-backup/ && rm -f {}"
+      args:
+        chdir: /home/{{ user.name }}
+    - name: Checkout dotfiles from git
+      command: git --git-dir=/home/{{ user.name }}/{{ gitdotfiles.destination }} \
+               --work-tree=/home/{{ user.name }} checkout  {{ gitdotfiles.branch }}
+      args:
+        chdir: /home/{{ user.name }}
+    - name: git config for dotfiles
+      command: git --git-dir=/home/{{ user.name }}/{{ gitdotfiles.destination }} \
+               --work-tree=/home/{{ user.name }} config --local status.showUntrackedFiles no
+      args:
+        chdir: /home/{{ user.name }}
+  when: gitdotfiles is defined
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: zsh configuration
+  block:
+  - name: Clone ohmyzsh
+    git:
+      repo=https://github.com/ohmyzsh/ohmyzsh.git
+      dest=/home/{{ user.name }}/.oh-my-zsh
+      accept_hostkey=yes
+
+  - name: Clone powerlevel10k plugin
+    git:
+      repo=https://github.com/romkatv/powerlevel10k.git
+      dest=/home/{{ user.name }}/.oh-my-zsh/custom/themes/powerlevel10k
+      accept_hostkey=yes
+  become: yes
+  become_user: "{{ user.name }}"

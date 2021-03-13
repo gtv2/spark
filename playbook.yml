@@ -10,6 +10,7 @@
     #  - { role: hardened, tags: ['hardened'] }
     - { role: ssh, tags: ['ssh'] }
     #  - { role: dotfiles, tags: ['dotfiles'] }
+    - { role: gitdotfiles, tags: ['gitdotfiles'] }
     - { role: ssd, tags: ['ssd'] }
     #  - { role: interception, tags: ['interception'], when: "interception is defined" }
     - { role: fonts, tags: ['fonts'] }
