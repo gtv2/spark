@@ -37,6 +37,10 @@ aur:
         - myrepos
         - ctmg
         - spiped
+        - 1password
+        - auracle-git
+        - trizen
+        - paru
 
 ssh:
     port: 22
@@ -105,8 +109,9 @@ base_packages:
     - fzf
     - cpulimit
     - vifm
-    - dmenu
     - gvim
+    - mc
+    - fd
 
 filesystem_packages:
     - dosfstools
