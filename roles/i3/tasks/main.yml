@@ -18,6 +18,13 @@
       - auracle-git
       - trizen
       - paru
+    user: "{{ user.name }}"
+
+- name: Install picom
+  pacman: name=picom state=present
+
+- name: Install feh
+  pacman: name=feh state=present
 
 - name: Verify that default applications file exists
   file: path=/etc/xdg/mimeapps.list state=touch

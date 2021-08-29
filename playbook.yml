@@ -1,5 +1,5 @@
 ---
-- hosts: arch
+- hosts: localhost
   become: yes
   roles:
     - { role: base, tags: ['base'] }
@@ -77,7 +77,7 @@
     #  - { role: parcimonie, tags: ['parcimonie'], when: "tor is defined" }
     #  - { role: localtime, tags: ['localtime'], when: "localtime is defined" }
     #  - { role: wormhole, tags: ['wormhole'] }
-    #  - { role: bluetooth, tags: ['bluetooth'], when: "bluetooth is defined" }
+    - { role: bluetooth, tags: ['bluetooth'], when: "bluetooth is defined" }
     #  - { role: wttr, tags: ['wttr'] }
     #  - { role: hostsctl, tags: ['hostsctl'], when: "hostsctl is defined" }
     #  - { role: himawaripy, tags: ['himawaripy'], when: "himawaripy is defined" }

@@ -34,7 +34,6 @@ aur:
         - downgrade
         - zplug
         - miller
-        - myrepos
         - ctmg
         - spiped
         - 1password
@@ -109,6 +108,7 @@ base_packages:
     - gvim
     - mc
     - fd
+    - xbindkeys
 
 filesystem_packages:
     - dosfstools
