@@ -12,6 +12,13 @@
 - name: Install py3status
   pacman: name=py3status state=present
 
+- name: Install aur dependencies for arch_updates (py3status module)
+  aur:
+    name:
+      - auracle-git
+      - trizen
+      - paru
+
 - name: Verify that default applications file exists
   file: path=/etc/xdg/mimeapps.list state=touch
 

@@ -38,9 +38,6 @@ aur:
         - ctmg
         - spiped
         - 1password
-        - auracle-git
-        - trizen
-        - paru
 
 ssh:
     port: 22
