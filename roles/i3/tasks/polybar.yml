@@ -1,0 +1,21 @@
+---
+- name: Install polybar
+  aur:
+    name:
+      - polybar
+    user: "{{ user.name }}"
+
+- name: Install fonts for polybar with pacman
+  pacman: 
+    name:
+      - xorg-fonts-misc 
+      - ttf-font-awesome
+    state: present 
+
+- name: Install fonts for polybar with aur
+  aur:
+    name:
+      - siji-git
+      - ttf-unifont
+    user: "{{ user.name }}"
+    skip_pgp: yes

@@ -1,0 +1,7 @@
+---
+- name: Install i3-save-tree dependencies
+  pacman:
+    name:
+      - perl-anyevent-i3
+      - perl-json-xs
+    state: present

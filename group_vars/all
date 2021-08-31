@@ -37,6 +37,7 @@ aur:
         - ctmg
         - spiped
         - 1password
+        - slack-desktop
 
 ssh:
     port: 22
@@ -109,6 +110,8 @@ base_packages:
     - mc
     - fd
     - xbindkeys
+    - telegram-desktop
+    - code
 
 filesystem_packages:
     - dosfstools
@@ -329,6 +332,7 @@ aur_fonts:
     - ttf-oswald
     - ttf-quintessential
     - ttf-signika
+    - nerd-fonts-meslo
 
 syncthing:
     run_on: trusted

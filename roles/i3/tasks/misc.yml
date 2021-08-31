@@ -1,0 +1,6 @@
+---
+- name: Install feh
+  pacman: name=feh state=present
+
+- name: Install dmenu
+  pacman: name=dmenu state=present

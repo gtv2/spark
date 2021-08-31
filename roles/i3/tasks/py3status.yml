@@ -1,0 +1,8 @@
+---
+- name: Install aur dependencies for arch_updates (py3status module)
+  aur:
+    name:
+      - auracle-git
+      - trizen
+      - paru
+    user: "{{ user.name }}"

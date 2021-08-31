@@ -6,25 +6,10 @@
       - i3blocks
       - i3lock
       - i3status
-      - dmenu
     state: present
 
 - name: Install py3status
   pacman: name=py3status state=present
-
-- name: Install aur dependencies for arch_updates (py3status module)
-  aur:
-    name:
-      - auracle-git
-      - trizen
-      - paru
-    user: "{{ user.name }}"
-
-- name: Install picom
-  pacman: name=picom state=present
-
-- name: Install feh
-  pacman: name=feh state=present
 
 - name: Verify that default applications file exists
   file: path=/etc/xdg/mimeapps.list state=touch
@@ -36,3 +21,8 @@
               insertbefore=BOF
 
 - include: rofi.yml
+- include: misc.yml
+- include: picom.yml
+- include: py3status.yml
+- include: i3-save-tree.yml
+- include: polybar.yml
