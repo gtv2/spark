@@ -4,3 +4,8 @@
 
 - name: Install dmenu
   pacman: name=dmenu state=present
+
+- name: Install i3lock-color
+  aur:
+    name:
+      - i3lock-color
