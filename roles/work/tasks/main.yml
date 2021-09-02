@@ -1,0 +1,6 @@
+---
+- name: Install GlobalProtect VPN
+  aur: name=globalprotect-openconnect user={{ user.name }}
+
+- name: Install Zoom
+  aur: name=zoom user={{ user.name }}
