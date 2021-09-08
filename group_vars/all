@@ -115,6 +115,7 @@ base_packages:
     - grub-customizer
     - lightdm-webkit2-greeter
     - lightdm-webkit-theme-litarvan
+    - git-delta
 
 filesystem_packages:
     - dosfstools
