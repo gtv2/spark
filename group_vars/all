@@ -112,6 +112,9 @@ base_packages:
     - xbindkeys
     - telegram-desktop
     - code
+    - grub-customizer
+    - lightdm-webkit2-greeter
+    - lightdm-webkit-theme-litarvan
 
 filesystem_packages:
     - dosfstools
@@ -351,3 +354,8 @@ hardened:
     enable_namespaces: true
 
 #kernel_parameters: "quiet consoleblank=60"
+
+wireguard:
+    configs_path: ~/git/algo/configs
+    vpn_server_ip: 13.53.76.69
+    client: router-asus

@@ -1,0 +1,17 @@
+---
+- name: Install wireguard-tools
+  pacman:
+    name: wireguard-tools
+    state: present
+
+- name: Copy algovpn wireguard config
+  copy: 
+    src: "{{ wireguard.configs_path }}/{{ wireguard.vpn_server_ip }}/wireguard/{{ wireguard.client }}.conf"
+    dest: /etc/wireguard/
+    mode: 600
+
+- name: Create softlink for config (wg-quick@wg0) 
+  file:
+    src: "/etc/wireguard/{{ wireguard.client }}.conf"
+    dest: /etc/wireguard/wg0
+    state: link
