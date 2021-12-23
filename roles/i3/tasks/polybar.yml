@@ -6,11 +6,11 @@
     user: "{{ user.name }}"
 
 - name: Install fonts for polybar with pacman
-  pacman: 
+  pacman:
     name:
-      - xorg-fonts-misc 
+      - xorg-fonts-misc
       - ttf-font-awesome
-    state: present 
+    state: present
 
 - name: Install fonts for polybar with aur
   aur:

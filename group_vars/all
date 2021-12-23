@@ -38,6 +38,7 @@ aur:
         - spiped
         - 1password
         - slack-desktop
+        - clipit
 
 ssh:
     port: 22
@@ -116,6 +117,9 @@ base_packages:
     - lightdm-webkit2-greeter
     - lightdm-webkit-theme-litarvan
     - git-delta
+    - conky
+    - conky-manager
+    - nitrogen
 
 filesystem_packages:
     - dosfstools

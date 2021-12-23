@@ -2,8 +2,12 @@
 - name: Install feh
   pacman: name=feh state=present
 
-- name: Install dmenu
-  pacman: name=dmenu state=present
+    # Conflicts with dmenu_manjaro
+    #- name: Install dmenu
+    #  pacman: name=dmenu state=present
 
 - name: Install i3lock-color
   aur: name=i3lock-color user={{ user.name }}
+
+- name: Install i3exit
+  aur: name=i3exit user={{ user.name }}
