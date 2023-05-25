@@ -36,9 +36,9 @@ aur:
         - miller
         - ctmg
         - spiped
-        - 1password
         - slack-desktop
         - clipit
+#        - 1password
 
 ssh:
     port: 22
@@ -361,6 +361,6 @@ hardened:
 #kernel_parameters: "quiet consoleblank=60"
 
 wireguard:
-    configs_path: ~/git/algo/configs
-    vpn_server_ip: 13.53.76.69
-    client: router-asus
+    configs_path: ""
+    vpn_server_ip: ""
+    client: ""
