@@ -23,7 +23,7 @@ dotfiles:
 
 gitdotfiles:
     url: git@gitlab.com:gtrapeznikov/dotfiles.git
-    branch: arch
+    branch: linux
     destination: .mydotfiles
     ssh_key: id_gitlab_gtrapeznikov
 
@@ -105,7 +105,6 @@ base_packages:
     - screen
     - termdown
     - fzf
-    - cpulimit
     - vifm
     - gvim
     - mc
@@ -120,6 +119,7 @@ base_packages:
     - conky
     - conky-manager
     - nitrogen
+#    - cpulimit
 
 filesystem_packages:
     - dosfstools
