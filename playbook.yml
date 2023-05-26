@@ -87,7 +87,7 @@
     #  - { role: mirrorlist, tags: ['mirrorlist'], when: "mirrorlist is defined" }
     #  - { role: pkgfile, tags: ['pkgfile'], when: "pkgfile is defined" }
     #  - { role: units, tags: ['units'], when: "units is defined" }
-    - { role: logitech, tags: ['logitech'] }
+    #  - { role: logitech, tags: ['logitech'] }
     #  - { role: pydev, tags: ['pydev'] }
     #  - { role: aria2, tags: ['aria2'] }
     #  - { role: signal, tags: ['signal'] }
@@ -96,7 +96,7 @@
     #  - { role: zeal, tags: ['zeal'] }
     #  - { role: kdeconnect, tags: ['kdeconnect'] }
     # - { role: work, tags: ['work'] }
-    - { role: wireguard, tags: ['vpn'] }
+    #  - { role: wireguard, tags: ['vpn'] }
     #  - { role: bitlbee, tags: ['bitlbee'] }
     #  - { role: rtorrent, tags: ['rtorrent'] }
   vars_prompt:

@@ -7,7 +7,7 @@
 - name: Install i3lock
   pacman:
     name: i3lock
-    state: present
+    state: absent
 
 - name: Push lock script
   copy:

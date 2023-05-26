@@ -120,6 +120,7 @@ base_packages:
     - conky-manager
     - nitrogen
     - neofetch
+    - kitty
 #    - cpulimit
 
 filesystem_packages:
