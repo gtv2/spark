@@ -24,7 +24,7 @@ dotfiles:
 gitdotfiles:
     url: git@gitlab.com:gtrapeznikov/dotfiles.git
     branch: linux
-    destination: .mydotfiles
+    destination: .dotfiles
     ssh_key: id_gitlab_gtrapeznikov
 
 aur:
@@ -119,6 +119,7 @@ base_packages:
     - conky
     - conky-manager
     - nitrogen
+    - neofetch
 #    - cpulimit
 
 filesystem_packages:

@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: arch
   become: yes
   roles:
     - { role: base, tags: ['base'] }
