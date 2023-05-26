@@ -58,7 +58,7 @@ mail:
     sync_pim: True
     sync_taskwarrior: True
     sync_notmuch: False
-    sync_time: 5min
+    sync_time: 10min
     sync_boot_delay: 2min
     sync_on: trusted
 
@@ -320,6 +320,9 @@ base_fonts:
     - noto-fonts
     - terminus-font
     - tex-gyre-fonts
+    - ttc-iosevka
+    - ttc-iosevka-aile
+    - ttc-iosevka-ss08
     - ttf-caladea
     - ttf-carlito
     - ttf-dejavu
@@ -338,12 +341,17 @@ aur_fonts:
     - ttf-heuristica
     - ttf-merriweather
     - ttf-merriweather-sans
+    - ttf-mplus-git
     - ttf-oswald
     - ttf-quintessential
     - ttf-signika
     - nerd-fonts-meslo
 
 syncthing:
+    run_on: trusted
+    open_ports: true
+
+kdeconnect:
     run_on: trusted
     open_ports: true
 

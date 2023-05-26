@@ -4,6 +4,11 @@
     name: w3m
     state: present
 
+- name: Install lynx
+  pacman:
+    name: lynx
+    state: present
+
 - name: Install Firefox
   pacman:
     name: firefox
@@ -21,9 +26,10 @@
     - firejail
 
 - name: Verify Firefox firejail local profile exists
-  file:
-    path: /etc/firejail/firefox.local
-    state: touch
+  copy:
+    content: ""
+    dest: /etc/firejail/firefox.local
+    force: false
   tags:
     - firefox
     - firejail
@@ -54,9 +60,10 @@
     - firejail
 
 - name: Verify Chromium firejail local profile exists
-  file:
-    path: /etc/firejail/chromium.local
-    state: touch
+  copy:
+    content: ""
+    dest: /etc/firejail/chromium.local
+    force: false
   tags:
     - chromium
     - firejail
@@ -86,9 +93,12 @@
     - tor-browser
     - firejail
 
-- name: Install qutebrowser
+- name: Install qutebrowser and dependencies
   pacman:
-    name: qutebrowser
+    name:
+      - qutebrowser
+      - python-adblock
+      - pdfjs
     state: present
   tags:
     - qutebrowser
@@ -101,13 +111,6 @@
   tags:
     - qutebrowser
     - firejail
-
-- name: Install pdfjs for qutebrowser
-  pacman:
-    name: pdfjs
-    state: present
-  tags:
-    - qutebrowser
 
 - name: Push rofi browser chooser
   template:
@@ -135,9 +138,10 @@
     - chooser
 
 - name: Verify mimeapps.list exists
-  file:
-    path: /etc/xdg/mimeapps.list
-    state: touch
+  copy:
+    content: ""
+    dest: /etc/xdg/mimeapps.list
+    force: false
   tags:
     - rofi
     - chooser

@@ -23,9 +23,10 @@
     state: directory
 
 - name: Verify firejail globals file exists
-  file:
-    path: /etc/firejail/globals.local
-    state: touch
+  copy:
+    content: ""
+    dest: /etc/firejail/globals.local
+    force: false
 
 - name: Add blacklist to globals
   lineinfile:
@@ -33,3 +34,9 @@
     state: present
     line: "blacklist {{ item }}"
   with_items: "{{ firejail.blacklist }}"
+
+- name: Add user to firejail users
+  lineinfile:
+    dest: /etc/firejail/firejail.users
+    state: present
+    line: "{{ user.name }}"

@@ -13,9 +13,10 @@
     - firejail
 
 - name: Verify LibreOffice firejail local profile exists
-  file:
-    path: /etc/firejail/libreoffice.local
-    state: touch
+  copy:
+    content: ""
+    dest: /etc/firejail/libreoffice.local
+    force: false
   tags:
     - firejail
 
@@ -45,10 +46,9 @@
     name: simple-scan
     state: present
 
-- name: Install pandoc and dependencies
+- name: Install pandoc
   pacman:
-    name:
-      - pandoc
+    name: pandoc-cli
     state: present
 
 - name: Install texlive-core
@@ -86,3 +86,15 @@
     user: "{{ user.name }}"
   tags:
     - aur
+
+- name: Install epy
+  aur:
+    name: epy-git
+    user: "{{ user.name }}"
+  tags:
+    - aur
+
+- name: Install csvkit
+  pacman:
+    name: csvkit
+    state: present

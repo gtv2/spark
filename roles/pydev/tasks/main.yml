@@ -9,6 +9,11 @@
       name: pyenv
       state: present
 
+- name: Install pipx
+  pacman:
+      name: python-pipx
+      state: present
+
 - name: Install black
   pacman:
       name: python-black
@@ -16,7 +21,5 @@
 
 - name: Install documentation
   pacman:
-      name:
-        - python-docs
-        - python2-docs
+      name: python-docs
       state: present

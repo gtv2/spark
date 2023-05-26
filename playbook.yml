@@ -3,6 +3,7 @@
   become: yes
   roles:
     - { role: base, tags: ['base'] }
+    - { role: sudo, tags: ['sudo'] }
     # - { role: gnupg, tags: ['gnupg'] }
     - { role: sysmon, tags: ['sysmon'] }
     - { role: cron, tags: ['cron'] }
@@ -23,6 +24,7 @@
     - { role: pass, tags: ['pass'] }
     #  - { role: iptables, tags: ['iptables'] }
     #  - { role: nettools, tags: ['nettools'] }
+    #  - { role: openvpn, tags: ['openvpn'] }
     #  - { role: nmtrust, tags: ['nmtrust'] }
     #  - { role: unbound, tags: ['unbound'] }
     #  - { role: openresolv, tags: ['openresolv'] }
@@ -47,7 +49,6 @@
     #  - { role: thinkpad, tags: ['thinkpad'], when: "'ThinkPad' in ansible_product_version" }
     #  - { role: macbook, tags: ['macbook'], when: "'MacBook' in ansible_product_name" }
     - { role: screensaver, tags: ['screensaver'] }
-    #  - { role: bitlbee, tags: ['bitlbee'] }
     #  - { role: weechat, tags: ['weechat'] }
     #  - { role: git-annex, tags: ['git-annex'], when: "gitannex is defined" }
     #  - { role: taskwarrior, tags: ['taskwarrior'] }
@@ -59,7 +60,7 @@
     #  - { role: pdf, tags: ['pdf'] }
     #  - { role: dictd, tags: ['dictd'] }
     #  - { role: redshift, tags: ['redshift'] }
-    - { role: rtorrent, tags: ['rtorrent'] }
+    - { role: transmission, tags: ['transmission'] }
     #  - { role: virtualbox, tags: ['virtualbox'] }
     #  - { role: hashicorp, tags: ['hashicorp'] }
     #  - { role: virtualenv, tags: ['virtualenv'] }
@@ -93,8 +94,11 @@
     #  - { role: android, tags: ['android'] }
     - { role: ripgrep, tags: ['ripgrep'] }
     #  - { role: zeal, tags: ['zeal'] }
-    - { role: work, tags: ['work'] }
+    #  - { role: kdeconnect, tags: ['kdeconnect'] }
+    # - { role: work, tags: ['work'] }
     - { role: wireguard, tags: ['vpn'] }
+    #  - { role: bitlbee, tags: ['bitlbee'] }
+    #  - { role: rtorrent, tags: ['rtorrent'] }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"
